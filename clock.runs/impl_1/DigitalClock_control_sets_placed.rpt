@@ -1,0 +1,97 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+| Date         : Sun Apr 28 22:47:35 2024
+| Host         : Kaushik running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file DigitalClock_control_sets_placed.rpt
+| Design       : DigitalClock
+| Device       : xc7z020
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    19 |
+|    Minimum number of control sets                        |    19 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    60 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    19 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |    10 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     2 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              15 |           12 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              54 |           15 |
+| Yes          | No                    | No                     |               8 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              71 |           26 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------+-------------------------------+----------------------+------------------+----------------+--------------+
+|   Clock Signal  |         Enable Signal         |   Set/Reset Signal   | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------+-------------------------------+----------------------+------------------+----------------+--------------+
+|  co_BUFG        | prev_mode_sel[1]_i_1_n_0      |                      |                1 |              2 |         2.00 |
+|  co_BUFG        | state[1]_i_1_n_0              | reset_IBUF           |                1 |              2 |         2.00 |
+|  clk_IBUF_BUFG  |                               |                      |                2 |              2 |         1.00 |
+|  co_BUFG        | ahour[4]_i_1_n_0              | reset_IBUF           |                2 |              5 |         2.50 |
+|  co_BUFG        | hour[4]_i_1_n_0               | reset_IBUF           |                1 |              5 |         5.00 |
+|  co_BUFG        | thour[4]_i_1_n_0              | reset_IBUF           |                2 |              5 |         2.50 |
+|  co_BUFG        | tsec[5]_i_1_n_0               | reset_IBUF           |                2 |              6 |         3.00 |
+|  co_BUFG        | amin[5]_i_1_n_0               | reset_IBUF           |                2 |              6 |         3.00 |
+|  co_BUFG        | FSM_onehot_alm_sel[5]_i_1_n_0 |                      |                1 |              6 |         6.00 |
+|  co_BUFG        | blink[5]_i_2_n_0              | blink[5]_i_1_n_0     |                3 |              6 |         2.00 |
+|  co_BUFG        | counter[5]_i_1_n_0            | reset_IBUF           |                2 |              6 |         3.00 |
+|  co_BUFG        | min[5]_i_1_n_0                | reset_IBUF           |                2 |              6 |         3.00 |
+|  co_BUFG        | red[1]_i_2_n_0                | red[1]_i_1_n_0       |                1 |              6 |         6.00 |
+|  co_BUFG        | stpwthsec[5]_i_2_n_0          | stpwthsec[5]_i_1_n_0 |                2 |              6 |         3.00 |
+|  co_BUFG        | stpwthmin[5]_i_1_n_0          | stpwthsec[5]_i_1_n_0 |                3 |              6 |         2.00 |
+|  co_BUFG        | tmin[5]_i_1_n_0               | reset_IBUF           |                3 |              6 |         2.00 |
+|  divclk_reg_n_0 |                               |                      |               10 |             13 |         1.30 |
+|  clk_IBUF_BUFG  |                               | clear                |                7 |             27 |         3.86 |
+|  clk_IBUF_BUFG  |                               | divclk               |                8 |             27 |         3.38 |
++-----------------+-------------------------------+----------------------+------------------+----------------+--------------+
+
+
